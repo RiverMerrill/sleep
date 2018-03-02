@@ -6,13 +6,13 @@ function setup(){
   angleMode(DEGREES)
   createCanvas(window.innerWidth,window.innerHeight);
   background('grey');
-  spinners.push(new Spinner(window.innerWidth/2-50, 1, 5));
+  spinners.push(new Spinner(window.innerWidth/10, 1, 5));
   play(new p5.Oscillator(), random(500,3000), new p5.Env());
   play(new p5.Oscillator(), random(500,3000), new p5.Env());
   play(new p5.Oscillator(), random(500,3000), new p5.Env());
 }
 function draw(){
-  let sine = map(sin(a),-1,1,10,50);
+  let sine = map(sin(a),-1,1,10,window.innerWidth/10-10);
   drawCenter(sine);
   spinners.forEach(spinner =>{
     if(spinner){
@@ -24,8 +24,8 @@ function draw(){
         let r = random(0.3,3);
         let s = random(1,20);
         completedCircle(new p5.Oscillator(),new p5.Env());
-        spinners.push(new Spinner(random(window.innerWidth/20,window.innerWidth/2-50),random(0.3,3),random(1,20)));
-        spinners.push(new Spinner(random(window.innerWidth/20,window.innerWidth/2-50),random(0.3,3),random(1,20)));
+        spinners.push(new Spinner(random(window.innerWidth/10,window.innerWidth/2-50),random(0.3,3),random(1,20)));
+        spinners.push(new Spinner(random(window.innerWidth/10,window.innerWidth/2-50),random(0.3,3),random(1,20)));
       }
       spinners.splice(spinners.indexOf(spinner),1);
     }
