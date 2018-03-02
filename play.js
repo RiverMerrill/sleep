@@ -17,3 +17,12 @@ function play(osc, timeDistance, env){
   env.play();
   window.setTimeout(() => {play(osc, random(500,3000), env)}, timeDistance);
 }
+function completedCircle(osc, env){
+  env.setADSR(attackTime, decayTime, susPercent, releaseTime);
+  env.setRange(attackLevel, releaseLevel);
+  osc.setType('triangle');
+  osc.amp(env);
+  osc.start();
+  osc.freq(262);
+  env.play();
+}
